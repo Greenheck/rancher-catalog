@@ -6,8 +6,6 @@ atmos:
     -   "cache:cache.local"
     -   "authcache:authcache.local"
     -   "vault:vault.local"
-    -   "${greenheck_services_host}:greenheck-services.local"
-    -   "${backbone_host}:backbone.local"
     environment:
         PORT: "80"
         MAX_WORKERS: "1"
@@ -18,10 +16,10 @@ atmos:
         VAULT_HOST: "vault.local"
         VAULT_PORT: "28015"
         VAULT_DATABASE: "vault"
-        WAYPOINT_HOST: "backbone.local"
+        WAYPOINT_HOST: "${backbone_host}"
         WAYPOINT_PORT: "9085"
         WAYPOINT_VERSION: "dev"
-        ECAPS_AUTH_URL: "https://greenheck-services.local/eCaps/test/user"
+        ECAPS_AUTH_URL: "https://${greenheck_services_host}/eCaps/test/user"
     restart: "always"
 cache:
     image: "registry.greenheck.com/greenheck/atmos-cache:latest"
