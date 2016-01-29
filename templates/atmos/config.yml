@@ -1,0 +1,5 @@
+name: "atmos"
+description: |
+    Atmos API
+version: "1.0.0"
+maintainer: "Joe Lekie <joe.lekie@greenheck.com>"

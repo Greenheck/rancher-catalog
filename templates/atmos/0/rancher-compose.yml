@@ -1,0 +1,17 @@
+.catalog:
+    name: "Atmos"
+    version: "1.0.0"
+    description: |
+        Atmos API
+    questions:
+    -   variable: "greenheck_services_host"
+        description: "Hostname of the core Greenheck services"
+        label: "Greenheck Services Host"
+        type: "string"
+        required: true
+        default: "services.greenheck.com"
+    -   variable: "backbone_host"
+        description: "Hostname of the backbone services"
+        label: "Backbone Host"
+        type: "string"
+        required: true

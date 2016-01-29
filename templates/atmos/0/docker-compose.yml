@@ -1,0 +1,41 @@
+atmos:
+    image: "registry.greenheck.com/jlekie/atmos:latest"
+    ports:
+    -   "80/tcp"
+    links:
+    -   "cache:cache.local"
+    -   "authcache:authcache.local"
+    -   "vault:vault.local"
+    external_links:
+    -   "${greenheck_services_host}:greenheck-services.local"
+    -   "${backbone_host}:backbone.local"
+    environment:
+        PORT: "80"
+        MAX_WORKERS: "1"
+        CACHE_HOST: "cache.local"
+        CACHE_PORT: "6379"
+        AUTH_CACHE_HOST: "authcache.local"
+        AUTH_CACHE_PORT: "6379"
+        VAULT_HOST: "vault.local"
+        VAULT_PORT: "28015"
+        VAULT_DATABASE: "vault"
+        WAYPOINT_HOST: "backbone.local"
+        WAYPOINT_PORT: "9085"
+        WAYPOINT_VERSION: "dev"
+        ECAPS_AUTH_URL: "https://greenheck-services.local/eCaps/test/user"
+    restart: "always"
+cache:
+    image: "registry.greenheck.com/greenheck/atmos-cache:latest"
+    ports:
+    -   "6379/tcp"
+    restart: "always"
+authcache:
+    image: "registry.greenheck.com/greenheck/atmos-cache:latest"
+    ports:
+    -   "6379/tcp"
+    restart: "always"
+vault:
+    image: "rethinkdb:latest"
+    ports:
+    -   "8080/tcp"
+    restart: "always"
