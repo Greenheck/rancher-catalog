@@ -6,7 +6,6 @@ atmos:
     -   "cache:cache.local"
     -   "authcache:authcache.local"
     -   "vault:vault.local"
-    external_links:
     -   "${greenheck_services_host}:greenheck-services.local"
     -   "${backbone_host}:backbone.local"
     environment:
